@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Navigation
+//  Netology_IB_Instruments
 //
-//  Created by Миронов Илья on 12.09.2021.
+//  Created by Миронов Илья on 18.09.2021.
 //
 
 import UIKit
