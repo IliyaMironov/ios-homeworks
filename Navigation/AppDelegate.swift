@@ -10,10 +10,17 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        print(#function)
         // Override point for customization after application launch.
+//        window = UIWindow()
+//        if let window = window {
+//            window.backgroundColor = UIColor.white
+//            window.rootViewController = ViewController()
+//            window.makeKeyAndVisible()
+//        }
         return true
     }
 
