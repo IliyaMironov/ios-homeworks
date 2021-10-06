@@ -9,16 +9,18 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
-    let btn = UIButton()
+    let btnShowAlert = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.view.backgroundColor = .yellow
-        btn.backgroundColor = .green
-        btn.frame = CGRect(x: 40.0, y: 200.0, width: 200.0, height: 44.0)
-        btn.addTarget(self, action: #selector(btnCallBack), for: .touchUpInside)
-        self.view.addSubview(btn)
+        btnShowAlert.backgroundColor = .green
+        btnShowAlert.setTitle("Show Alert", for: .normal)
+        btnShowAlert.setTitleColor(.black, for: .normal)
+        let btnMarginX = self.view.bounds.size.width/2.0 - 100.0
+        btnShowAlert.frame = CGRect(x: btnMarginX, y: 200.0, width: 200.0, height: 44.0)
+        btnShowAlert.addTarget(self, action: #selector(btnShowAlertCallBack), for: .touchUpInside)
+        self.view.addSubview(btnShowAlert)
     }
     
     func confirmActionHandler(alert: UIAlertAction!) {
@@ -29,7 +31,7 @@ class InfoViewController: UIViewController {
         print("Calcel!")
     }
     
-    @objc func btnCallBack() {
+    @objc func btnShowAlertCallBack() {
         print(#function)
         let alertViewController = UIAlertController(title: "Alert", message: "It is ok!", preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "Ok",
@@ -42,15 +44,4 @@ class InfoViewController: UIViewController {
         
         self.present(alertViewController, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

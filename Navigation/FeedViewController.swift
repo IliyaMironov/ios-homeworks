@@ -9,36 +9,27 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    let btn = UIButton()
-    var post = Post()
+    let btnShowPostView = UIButton()
+    var postData = Post()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .red
-        // Do any additional setup after loading the view.
         
-        
-        post.setTitle("ABC")
-        btn.backgroundColor = .green
-        btn.frame = CGRect(x: 40.0, y: 200.0, width: 200.0, height: 44.0)
-        btn.addTarget(self, action: #selector(btnCallBack), for: .touchUpInside)
-        self.view.addSubview(btn)
+        postData.setTitle("ABC")
+        btnShowPostView.backgroundColor = .green
+        btnShowPostView.setTitle("Show Post", for: .normal)
+        btnShowPostView.setTitleColor(.black, for: .normal)
+        let btnMarginX = self.view.bounds.size.width/2.0 - 100.0
+        btnShowPostView.frame = CGRect(x: btnMarginX, y: 200.0, width: 200.0, height: 44.0)
+        btnShowPostView.addTarget(self, action: #selector(showPostViewCallBack), for: .touchUpInside)
+        self.view.addSubview(btnShowPostView)
     }
     
-    @objc func btnCallBack() {
+    @objc func showPostViewCallBack() {
         print(#function)
         let postViewController = PostViewController()
-        postViewController.post = self.post
+        postViewController.post = self.postData
         self.navigationController?.pushViewController(postViewController, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

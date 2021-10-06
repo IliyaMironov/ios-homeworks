@@ -6,16 +6,8 @@
 //
 
 struct Post {
-    var title: String
-    
-    init() {
-        self.title = ""
-    }
-    
-    init(_ title: String) {
-        self.title = title
-    }
-    
+    var title: String = ""
+
     mutating func setTitle(_ title: String) {
         self.title = title
     }
