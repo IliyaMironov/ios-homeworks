@@ -13,6 +13,8 @@
 		F01D748526EE35B400E8E304 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01D748326EE35B400E8E304 /* Main.storyboard */; };
 		F01D748726EE35BB00E8E304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F01D748626EE35BB00E8E304 /* Assets.xcassets */; };
 		F01D748A26EE35BB00E8E304 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01D748826EE35BB00E8E304 /* LaunchScreen.storyboard */; };
+		F01D74C7270DCAF200E8E304 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D74C6270DCAF200E8E304 /* ProfileHeaderView.swift */; };
+		F01D74C9270DCB3300E8E304 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D74C8270DCB3300E8E304 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		F01D748626EE35BB00E8E304 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F01D748926EE35BB00E8E304 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F01D748B26EE35BB00E8E304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F01D74C6270DCAF200E8E304 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		F01D74C8270DCB3300E8E304 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 		F01D747126EE35B200E8E304 = {
 			isa = PBXGroup;
 			children = (
+				F01D74C5270DCA6800E8E304 /* Profile */,
 				F01D747C26EE35B300E8E304 /* Navigation */,
 				F01D747B26EE35B300E8E304 /* Products */,
 			);
@@ -65,6 +70,15 @@
 				F01D748B26EE35BB00E8E304 /* Info.plist */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F01D74C5270DCA6800E8E304 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F01D74C6270DCAF200E8E304 /* ProfileHeaderView.swift */,
+				F01D74C8270DCB3300E8E304 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +153,9 @@
 			files = (
 				F01D748226EE35B300E8E304 /* ViewController.swift in Sources */,
 				F01D747E26EE35B300E8E304 /* AppDelegate.swift in Sources */,
+				F01D74C9270DCB3300E8E304 /* ProfileViewController.swift in Sources */,
 				F01D748026EE35B300E8E304 /* SceneDelegate.swift in Sources */,
+				F01D74C7270DCAF200E8E304 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
