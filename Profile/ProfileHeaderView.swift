@@ -8,7 +8,6 @@
 import UIKit
 
 class ProfileHeaderView: UIView {
-    let ptSageAreaMargin = CGFloat(90.0)
     
     lazy var titleLable: UILabel = {
         let lable = UILabel()
@@ -24,21 +23,20 @@ class ProfileHeaderView: UIView {
         text.textColor = UIColor.gray
         text.text = "Waiting for something..."
         text.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        text.frame = CGRect(origin: CGPoint(x: 100, y: 100 + ptSageAreaMargin), size: .zero)
+        text.frame = CGRect(origin: .zero, size: .zero)
         text.sizeToFit()
         return text
        }()
     
-    lazy var avaImage: UIView = {
-        let img = UIView()
-        img.frame = CGRect(origin: CGPoint(x: 16, y: 16 + ptSageAreaMargin), size: CGSize(width: 100, height: 100))
+    lazy var avaImage: UIImageView = {
+        let img = UIImageView()
+        img.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 100))
         let bgImage = UIImage(named: "ImageAva")
-        
-        img.backgroundColor = UIColor(patternImage: UIImage(named: "ImageAva")!)
+        img.image = bgImage
         img.layer.cornerRadius = 50
         img.layer.borderWidth = 3
         img.layer.borderColor = CGColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0)
-        
+        img.layer.masksToBounds = true
         return img
     }()
     
@@ -67,23 +65,40 @@ class ProfileHeaderView: UIView {
     }
     
     func commonInit() {
-        self.layer.borderWidth = 16
         self.layer.borderColor = .init(gray: 0, alpha: 0)
-        self.addSubview(titleLable)
         self.addSubview(avaImage)
+        self.addSubview(titleLable)
         self.addSubview(statusLable)
         self.addSubview(btnShowStatus)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let positionAvaImage = avaImage.frame.origin
-        titleLable.frame = CGRect(origin: CGPoint(x: positionAvaImage.x + avaImage.frame.width + 16, y: 27 + ptSageAreaMargin), size: CGSize(width: titleLable.frame.width, height: titleLable.frame.height))
         
-        btnShowStatus.frame = CGRect(origin: CGPoint(x: 16, y: positionAvaImage.y + avaImage.frame.height + 16), size: CGSize(width: self.bounds.width - 16*2, height: 50))
-        let positionBtnShowStatus = btnShowStatus.frame.origin
-        statusLable.frame = CGRect(origin: CGPoint(x: positionAvaImage.x + avaImage.frame.width + 16, y: positionBtnShowStatus.y - statusLable.frame.height - 32), size: CGSize(width: statusLable.frame.width, height: statusLable.frame.height))
+        titleLable.translatesAutoresizingMaskIntoConstraints = false
+        statusLable.translatesAutoresizingMaskIntoConstraints = false
+        avaImage.translatesAutoresizingMaskIntoConstraints = false
+        btnShowStatus.translatesAutoresizingMaskIntoConstraints = false
         
+        let constrains = [
+            avaImage.widthAnchor.constraint(equalToConstant: 100),
+            avaImage.heightAnchor.constraint(equalToConstant: 100),
+            avaImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            avaImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            
+            btnShowStatus.heightAnchor.constraint(equalToConstant: 50),
+            btnShowStatus.topAnchor.constraint(equalTo: avaImage.bottomAnchor, constant: 16),
+            btnShowStatus.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            btnShowStatus.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
+            
+            titleLable.leftAnchor.constraint(equalTo: self.avaImage.rightAnchor, constant: 20),
+            titleLable.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27.0),
+            
+            statusLable.leftAnchor.constraint(equalTo: self.avaImage.rightAnchor, constant: 20),
+            statusLable.bottomAnchor.constraint(equalTo: self.btnShowStatus.topAnchor, constant: -34.0)
+        ]
+        
+        NSLayoutConstraint.activate(constrains)
     }
     
     @objc func buttonPressed() {
